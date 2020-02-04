@@ -1,26 +1,71 @@
 // Assignment Code
+let noCaps = "abcdefghijklmnopqrstuvwxyz";
+let upperCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let numeros = "0123456789";
+let specialLetters = "!$^&*-=+_?";
+
 var generateBtn = document.querySelector("#generate");
+
+
+let letterLength = parseInt(prompt("Type desire password length."));
+
+let inputChoices = {};
+
+function promptUser(){
+  let howMany = confirm("Would you like numbers?");
+  let lowLetters = confirm("Would you like lowercase");
+  var upperLetters = confirm("Would you like uppercase characters?");
+  var special = confirm("Would you like special characters?");
+
+if (howMany) {
+  inputChoices["numeros"] = numeros;
+}
+if (lowLetters) {
+  inputChoices["noCaps"] = noCaps;
+}
+if (upperLetters) {
+  inputChoices["upperCaps"] = upperCaps;
+}
+if (special) {
+  inputChoices["specialLetters"] = specialLetters;
+}
+
+}
+
+promptUser();
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword();
+  // let password = generatePassword();
+  let password = "";
   let passwordText = document.querySelector("#password");
   
-  let = lowerCase = ("abcdefghijklmnopqrstuvwxyz"), 
-  upperCase("ABCDEFGHIJKLMNOPQRSTYVXYZ"),
-  numbers(""),
-  specialCharacter(""),
 
-  ;
-  
-  passwordText.value = password;
+  for (var i = 0; i < letterLength; i++) {
+    let passOpt = Object.keys(inputChoices);
+    let numChoi = passOpt[Math.floor(Math.random() * passOpt.length)];
+    let num = getRandomCharacter(inputChoices[numChoi]);
 
+  password += num;
+
+}
+passwordText.value = password;
+
+
+
+return password;
 
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+function getRandomCharacter(str) {
+  return str[Math.floor(Math.random() * str.length)]
+}
 
+writePassword();
+
+// Add event listener to generate button
+console.log(writePassword);
+generateBtn.addEventListener("click", writePassword);
 
 
