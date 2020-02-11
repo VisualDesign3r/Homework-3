@@ -1,11 +1,9 @@
-// Assignment Code
 let noCaps = "abcdefghijklmnopqrstuvwxyz";
 let upperCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let numeros = "0123456789";
 let specialLetters = "!$^&*-=+_?";
 
 var generateBtn = document.querySelector("#generate");
-
 
 let letterLength = parseInt(prompt("Type desire password length."));
 
@@ -34,9 +32,7 @@ if (special) {
 
 promptUser();
 
-// Write password to the #password input
 function writePassword() {
-  // let password = generatePassword();
   let password = "";
   let passwordText = document.querySelector("#password");
   
@@ -56,6 +52,8 @@ passwordText.value = password;
 return password;
 
 
+
+
 }
 
 function getRandomCharacter(str) {
@@ -64,7 +62,6 @@ function getRandomCharacter(str) {
 
 writePassword();
 
-// Add event listener to generate button
 console.log(writePassword);
 generateBtn.addEventListener("click", writePassword);
 
